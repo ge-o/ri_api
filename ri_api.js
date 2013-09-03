@@ -17,8 +17,8 @@
 
  
   app.post("/new", function (req, res) {
-    var content = JSON.parse(req.requestBody);
-    res.json(content);
+      repositories.words.collection.save(JSON.parse(req.requestBody));
+      res.json({ "msg": "stored" });
     }).nickname("new")
   .summary("Adds new Word")
   .notes("This function simply adds the new Word");
