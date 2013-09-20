@@ -10,7 +10,9 @@
     );
 
     app.get("/random", function (req, res) {
-       res.json(repositories.words.collection.any());
+        var result = repositories.words.collection.any();
+        repositories.words.collection.update(result._id,{"counter":1});
+       res.json(result);
     }).nickname("random")
   .summary("Returns new Word")
   .notes("This function simply returns the new Word");
