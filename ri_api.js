@@ -11,7 +11,9 @@
 
     app.get("/random", function (req, res) {
         var result = repositories.words.collection.any();
-        var c = parseInt(result.counter);
+        var c = result.counter;
+        if(c == '')
+            c=0;
         c++;
         repositories.words.collection.update(result._id,{"counter":c});
        res.json(result);
