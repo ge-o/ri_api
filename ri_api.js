@@ -11,11 +11,11 @@
 
     app.get("/random", function (req, res) {
         var result = repositories.words.collection.any();
-        var c = result.counter;
-        if(c == '')
-            c=0;
+        var c = result.anzahl;
+        if(true == isNaN(c))
+            c = 0;
         c++;
-        repositories.words.collection.update(result._id,{"counter":c});
+        repositories.words.collection.update(result._id,{"anzahl": c});
        res.json(result);
     }).nickname("random")
   .summary("Returns new Word")
