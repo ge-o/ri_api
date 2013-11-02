@@ -1,7 +1,7 @@
 {
   "name": "ri_api",
-  "version": "0.3",
-  "description": "Test0r",
+  "version": "0.4",
+  "description": "API for Reading Game https://github.com/ge-o/ReadTest",
 
   "controllers": {
     "/": "ri_api.js"

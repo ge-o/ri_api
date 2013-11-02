@@ -5,17 +5,16 @@
   var FoxxController = require("org/arangodb/foxx").Controller,
     controller = new FoxxController(applicationContext);
 
-    controller.registerRepository(
-      "words"
-    );
+    var usersRepo = new foxx.Repository(db._collection("words"));
+
 
     controller.get("/random", function (req, res) {
-        var result = repositories.words.collection.any();
+        var result = usersRepo.collection.any();
         var c = result.anzahl;
         if(true == isNaN(c))
             c = 0;
         c++;
-        repositories.words.collection.update(result._id,{"anzahl": c});
+        usersRepo.collection.update(result._id,{"anzahl": c});
        res.json(result);
     }).nickname("random")
   .summary("Returns new Word")
@@ -23,7 +22,7 @@
 
 
     controller.post("/new", function (req, res) {
-      repositories.words.collection.save(JSON.parse(req.requestBody));
+        usersRepo.collection.save(JSON.parse(req.requestBody));
       res.json({ "msg": "stored" });
     }).nickname("new")
   .summary("Adds new Word")
