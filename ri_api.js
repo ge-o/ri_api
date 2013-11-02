@@ -2,7 +2,7 @@
 (function() {
   "use strict";
 
-  var FoxxController = require("org/arangodb/foxx").Controller;
+  var FoxxController = require("org/arangodb/foxx").Controller,
     controller = new FoxxController(applicationContext);
 
     controller.registerRepository(
