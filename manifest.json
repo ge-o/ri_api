@@ -3,7 +3,7 @@
   "version": "0.3",
   "description": "Test0r",
 
-  "apps": {
+  "controllers": {
     "/": "ri_api.js"
   },
 "setup": "scripts/setup.js",

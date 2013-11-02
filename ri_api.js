@@ -2,14 +2,14 @@
 (function() {
   "use strict";
 
- var FoxxApplication = require("org/arangodb/foxx").Application,
-      app = new FoxxApplication();
+ var FoxxController = require("org/arangodb/foxx").Controller,
+      controller = new FoxxController();
 
-    app.registerRepository(
+    controller.registerRepository(
       "words"
     );
 
-    app.get("/random", function (req, res) {
+    controller.get("/random", function (req, res) {
         var result = repositories.words.collection.any();
         var c = result.anzahl;
         if(true == isNaN(c))
@@ -21,8 +21,8 @@
   .summary("Returns new Word")
   .notes("This function simply returns the new Word");
 
- 
-  app.post("/new", function (req, res) {
+
+    controller.post("/new", function (req, res) {
       repositories.words.collection.save(JSON.parse(req.requestBody));
       res.json({ "msg": "stored" });
     }).nickname("new")
@@ -30,5 +30,5 @@
   .notes("This function simply adds the new Word");
 
 
-  app.start(applicationContext);
+    controller.start(applicationContext);
 }());
