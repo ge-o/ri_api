@@ -6,7 +6,7 @@
   var db = arangodb.db;
 
   var createCollection = function(name) {
-    var handle = app.collectionName(name);
+    var handle = controller.collectionName(name);
     if (db._collection(handle) === null) {
       db._create(handle);
     }
