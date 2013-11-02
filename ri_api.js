@@ -3,10 +3,7 @@
   "use strict";
 
   var FoxxController = require("org/arangodb/foxx").Controller,
-    controller = new FoxxController(applicationContext,{
-        urlPrefix: "/"
-        }
-    );
+    controller = new FoxxController(applicationContext);
 
     var usersRepo = new foxx.Repository(db._collection("words"));
 
