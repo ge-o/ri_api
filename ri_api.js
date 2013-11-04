@@ -32,5 +32,4 @@
   .summary("Adds new Word")
   .notes("This function simply adds the new Word");
 
-    controller.start(applicationContext);
 }());
