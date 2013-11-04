@@ -8,6 +8,10 @@
     controller = new Controller(applicationContext),
     words = new Repository(controller.collection("words"));
 
+  /** returns random Word
+   *
+   * returns random word form the database
+   */
     controller.get("/random", function (req, res) {
         var result = words.collection.any();
         var c = result.anzahl;
@@ -20,7 +24,10 @@
         res.body = JSON.stringify(result);
     });
 
-
+  /** add new Word
+   *
+   * adds new word into the database
+   */
   controller.post("/new", function (req, res) {
         words.collection.save(JSON.parse(req.requestBody));
         res.responseCode = actions.HTTP_OK;
