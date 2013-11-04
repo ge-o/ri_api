@@ -18,9 +18,7 @@
         res.responseCode = actions.HTTP_OK;
         res.contentType = "application/json; charset=utf-8";
         res.body = JSON.stringify(result);
-    }).nickname("random")
-  .summary("Returns new Word")
-  .notes("This function simply returns the new Word");
+    });
 
 
   controller.post("/new", function (req, res) {
@@ -28,8 +26,6 @@
         res.responseCode = actions.HTTP_OK;
         res.contentType = "application/json; charset=utf-8";
         res.body = JSON.stringify({ "msg": "stored" });
-    }).nickname("new")
-  .summary("Adds new Word")
-  .notes("This function simply adds the new Word");
+    });
 
 }());
