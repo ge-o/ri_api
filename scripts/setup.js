@@ -1,18 +1,16 @@
 (function() {
-  "use strict";
+    "use strict";
 
-  var console = require("console");
-  var arangodb = require("org/arangodb");
-  var db = arangodb.db;
+    var console = require("console");
+    var arangodb = require("org/arangodb");
+    var db = arangodb.db;
 
-  var createCollection = function(name) {
-    var handle = controller.collectionName(name);
-    if (db._collection(handle) === null) {
-      db._create(handle);
+    var words = applicationContext.collectionName("words");
+
+    if (db._collection(words) === null) {
+        var collection = db._create(words);
     }
     else {
-      console.warn("collection '%s' already exists. Leaving it untouched.", handle);
+        console.log("collection '%s' already exists. Leaving it untouched.", words);
     }
-  };
-  createCollection("words");
 }());
